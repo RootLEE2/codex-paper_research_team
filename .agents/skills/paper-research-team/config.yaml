@@ -1,0 +1,187 @@
+workspace:
+  root: "."
+  default_review_output_dir: "literature-reviews"
+  python: ".agents/skills/paper-research-team/.venv/bin/python"
+
+agents:
+  use_actual_subagents_when_feasible: true
+  inline_only_when_subagents_unavailable_or_user_forbids: true
+  record_agent_assignments_in_session_outputs: true
+  create_process_log_by_default: false
+  process_log_only_when_user_requests: true
+
+papers:
+  root_dir: "papers"
+  state_dir: "papers/state"
+  zotero_pdf_dir: "papers/zotero"
+  obsidian_dir: "papers/obsidian"
+  note_template: "papers/obsidian/_templates/paper-note-template.md"
+  tag_registry: "papers/obsidian/_indexes/tag-registry.md"
+  keyword_registry: "papers/obsidian/_indexes/keyword-registry.md"
+
+zotero:
+  root_collection: "papers"
+  topic_collection_policy: "find_or_create_under_root"
+  assign_items_to_root_and_topic: true
+  reuse_existing_items: true
+  auto_save_selected_after_screening: true
+  do_not_defer_selected_import_for_process_visibility_runs: true
+  prefer_new_papers_but_allow_existing_core: true
+  use_existing_obsidian_notes: true
+  save_statuses:
+    - "core"
+    - "supporting"
+  do_not_save_statuses:
+    - "candidate"
+    - "maybe"
+    - "reject"
+
+search:
+  strategy: "broad_search_then_core_screening"
+  sources:
+    - "OpenAlex"
+    - "Semantic Scholar"
+    - "Consensus"
+  installed_sources:
+    - "OpenAlex"
+    - "Semantic Scholar via paper-search MCP"
+    - "Consensus MCP with OAuth"
+    - "Zotero library search"
+    - "Zotero full write/PDF MCP via zotero-full"
+  source_priority_reference: "references/source-priority.md"
+  priority_order:
+    - name: "OpenAlex"
+      role: "Primary metadata, venue, citation, reference, related-work, and broad candidate search."
+      reason: "Best default for low-token structured retrieval, citation graph work, venue filtering, deduplication, and large iterative searches."
+    - name: "Semantic Scholar"
+      role: "Secondary relevance search, PDF URL discovery, abstracts, and cross-checking."
+      reason: "Good paper metadata and PDF links, but use with focused result limits to control payload size."
+    - name: "Zotero"
+      role: "Early deduplication, existing-PDF lookup, prior Obsidian note reuse, and recovery of truly core or seminal papers already in the library."
+      reason: "Use after OpenAlex/Semantic Scholar seed discovery so the library accelerates work without dominating the candidate set."
+    - name: "Consensus"
+      role: "Question-driven peer-reviewed search and structured validation."
+      reason: "Useful for search strategy, high-level evidence checks, and biomedical/social-science style filters; less ideal as the main bulk source because plan limits and result caps apply."
+  zotero_reuse_policy:
+    timing: "after_openalex_and_semantic_scholar_seed_discovery"
+    use_for:
+      - "deduplication"
+      - "checking whether selected papers already exist"
+      - "reusing PDFs and notes for selected core/supporting papers"
+      - "adding already-owned seminal papers only when evidence-map coverage requires them"
+    avoid:
+      - "starting the literature search from Zotero"
+      - "inflating the core set with familiar existing papers"
+      - "preferring existing papers over better new candidates"
+  candidate_target_default: 80
+  candidate_target_max: 200
+  expansion_depth_default: 1
+  expansion_depth_max_without_user_approval: 2
+  prioritize_recent_years: 5
+  include_seminal_even_if_old: true
+
+screening:
+  core_selection_policy: "balanced_evidence_map"
+  evidence_roles:
+    - "directly_relevant"
+    - "seminal"
+    - "recent_sota"
+    - "methodology"
+    - "evaluation_precedent"
+    - "application_context"
+    - "theoretical_background"
+    - "adjacent_useful"
+  statuses:
+    - "candidate"
+    - "core"
+    - "supporting"
+    - "maybe"
+    - "pending_pdf"
+    - "reject"
+  default_core_range: "12-30"
+  default_supporting_range: "10-40"
+
+venues:
+  preferred:
+    - "ACM CHI"
+    - "ACM UIST"
+    - "IEEE Transactions on Haptics"
+    - "IEEE Haptics Symposium"
+    - "IEEE World Haptics Conference"
+    - "EuroHaptics"
+    - "IEEE VR"
+    - "IEEE ISMAR"
+    - "ACM VRST"
+    - "ACM DIS"
+    - "ACM IMWUT"
+    - "IEEE ICRA"
+    - "IEEE IROS"
+    - "ACM Multimedia"
+    - "IEEE Transactions on Multimedia"
+    - "ACM SIGGRAPH"
+
+pdf:
+  analyze_only_when_pdf_available: true
+  continue_when_pdf_missing: false
+  continue_search_and_screening_when_pdf_missing: true
+  block_synthesis_and_review_when_required_pdf_missing: true
+  missing_pdf_queue: "papers/state/pending_pdf"
+  request_user_for_missing_pdfs: true
+  allow_open_access_downloads: true
+  preferred_pdf_tools:
+    - "zotero-full"
+    - "paper-search download_with_fallback"
+    - "manual user upload"
+  resume_when_user_reports_pdf_added: true
+
+obsidian:
+  language: "ko"
+  note_body_language: "ko"
+  preserve_original_titles_terms_tags: true
+  preserve_technical_terms_and_concepts: true
+  keep_template_headings_language: "en"
+  notes_dir: "papers/obsidian/notes"
+  pending_notes_dir: "papers/obsidian/pending-notes"
+  reusable_paper_notes: true
+  normal_notes_require_full_text: true
+  include_current_project_section_in_paper_notes: false
+  use_tag_registry: true
+  keyword_registry: "papers/obsidian/_indexes/keyword-registry.md"
+  keyword_registry_is_local_only: true
+  auto_create_keyword_registry: true
+  add_reusable_keyword_tags: true
+  avoid_one_off_tags: true
+  reuse_existing_notes_for_synthesis: true
+
+note_validation:
+  required_before_synthesis: true
+  use_separate_agent: true
+  report_filename: "note-validation.md"
+  validate_new_or_materially_updated_notes: true
+  unresolved_failures_block_synthesis: true
+
+synthesis:
+  run_partial_after_available_pdf_notes: false
+  block_when_required_pdf_missing: true
+  block_when_note_validation_unresolved: true
+  blocked_placeholder_when_pending: true
+  final_requires_pending_pdf_resolution_or_user_deferral: true
+  rerun_after_new_pending_pdfs_are_added: true
+
+review_loop:
+  professor_review_is_final_gate: true
+  restart_full_cycle_when_review_says_insufficient: true
+  repeat_until_professor_review_passes_or_user_stops: true
+  use_review_critique_as_next_cycle_brief: true
+  missing_pdf_is_gate_not_review_failure: true
+  pending_notes_only_user_upload_needed: true
+
+stop_condition:
+  primary: "professor_review_pass"
+  secondary_checks:
+    - "evidence_map_coverage"
+    - "no_major_missing_seminal_work"
+    - "no_major_missing_recent_work"
+    - "paper_notes_validated_against_source_full_text"
+    - "claims_supported_by_analyzed_papers"
+    - "required_pending_pdfs_resolved_or_explicitly_deferred"

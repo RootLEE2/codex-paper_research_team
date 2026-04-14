@@ -1,0 +1,72 @@
+# Default deny. This repository publishes the reusable paper-research skill,
+# not the private research library.
+*
+
+# Root docs
+!/.gitignore
+!/README.md
+!/SETUP.md
+!/AGENTS.md
+!/LICENSE
+
+# Project-local Codex skill
+!.agents/
+!.agents/skills/
+!.agents/skills/paper-research-team/
+!.agents/skills/paper-research-team/SKILL.md
+!.agents/skills/paper-research-team/config.yaml
+!.agents/skills/paper-research-team/agents/
+!.agents/skills/paper-research-team/agents/openai.yaml
+!.agents/skills/paper-research-team/references/
+!.agents/skills/paper-research-team/references/**
+
+# Public Obsidian template and controlled tag registry
+!papers/
+!papers/obsidian/
+!papers/obsidian/_templates/
+!papers/obsidian/_templates/paper-note-template.md
+!papers/obsidian/_indexes/
+!papers/obsidian/_indexes/tag-registry.md
+
+# Local-only research-interest map
+papers/obsidian/_indexes/keyword-registry.md
+
+# Local environments and agent state
+.agents/skills/paper-research-team/.venv/
+.codex
+.obsidian/
+papers/.codex
+papers/.claude/
+papers/.obsidian/
+papers/obsidian/.obsidian/
+
+# Private research assets and generated outputs
+papers/zotero/
+papers/obsidian/notes/
+papers/obsidian/pending-notes/
+papers/state/
+literature-reviews/
+
+# Binary, local, and generated files
+*.pdf
+*.pptx
+*.key
+*.log
+*.pid
+*.sqlite
+*.sqlite-*
+*.db
+*.tmp
+*.bak
+*.bak*
+.env
+.env.*
+desktop.ini
+.DS_Store
+__pycache__/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+node_modules/
+dist/
+build/

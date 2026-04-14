@@ -1,0 +1,46 @@
+interface:
+  display_name: "Paper Research Team"
+  short_description: "Focused literature review with Zotero and Obsidian"
+  default_prompt: "Use $paper-research-team to run a focused literature review on my topic."
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "openalex"
+      description: "Search works, citations, references, related papers, venues, and author metadata."
+    - type: "mcp"
+      value: "paper-search"
+      description: "Search Semantic Scholar and other academic sources and download available PDFs."
+    - type: "mcp"
+      value: "consensus"
+      description: "Official Consensus MCP for peer-reviewed paper search, structured research outputs, and OAuth-authenticated academic search."
+    - type: "mcp"
+      value: "zotero"
+      description: "Search, inspect, and manage papers in the user's Zotero library."
+    - type: "mcp"
+      value: "zotero-full"
+      description: "Write-capable Zotero MCP for DOI import, collection/tag management, and open-access PDF cascade."
+policy:
+  allow_implicit_invocation: true
+  use_actual_subagents_when_feasible: true
+  inline_only_when_subagents_unavailable_or_user_forbids: true
+  record_agent_assignments_in_session_outputs: true
+  create_process_log_by_default: false
+  process_log_only_when_user_requests: true
+  auto_save_selected_to_zotero: true
+  do_not_defer_selected_zotero_import_for_process_visibility_runs: true
+  normal_notes_require_full_text: true
+  note_body_language: "ko"
+  preserve_original_titles_terms_tags: true
+  preserve_technical_terms_and_concepts: true
+  keyword_registry: "papers/obsidian/_indexes/keyword-registry.md"
+  keyword_registry_is_local_only: true
+  auto_create_keyword_registry: true
+  promote_keyword_tags_only_when_reusable: true
+  pending_notes_dir: "papers/obsidian/pending-notes"
+  block_synthesis_review_when_required_pdfs_missing: true
+  validate_paper_notes_before_synthesis: true
+  use_separate_summary_validation_agent: true
+  block_synthesis_when_note_validation_unresolved: true
+  restart_full_cycle_when_professor_review_says_insufficient: true
+  repeat_until_professor_review_passes_or_user_stops: true
+  pending_notes_only_user_upload_needed: true
