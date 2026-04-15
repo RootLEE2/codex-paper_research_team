@@ -80,6 +80,7 @@ Codex does not require these files to be registered as `/agent` entries. They ar
 - Use the public tag registry for pipeline tags. Read the local research profile before using local taxonomy registries for `#domain/*`, `#method/*`, `#venue/*`, or `#kw/*` tags.
 - Individual paper notes must summarize the paper itself and must not include a section about the user's current research.
 - Apply `references/policies/note-language.md` when writing or updating paper notes.
+- Apply `references/policies/paper-note-depth.md` before writing, updating, validating, or repairing paper notes.
 - Apply `references/policies/local-taxonomy-tags.md` before writing or updating domain, method, venue, or keyword tags in paper notes.
 - Apply `references/policies/pdf-gating.md` before writing notes, synthesis, or professor review.
 - Apply `references/policies/summary-validation.md` before synthesis whenever notes were newly written or materially updated.

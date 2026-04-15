@@ -34,6 +34,8 @@ policy:
   note_body_language: "ko"
   preserve_original_titles_terms_tags: true
   preserve_technical_terms_and_concepts: true
+  paper_notes_are_deep_extraction_notes: true
+  metadata_level_notes_forbidden_under_notes: true
   tag_registry_contains_pipeline_tags_only: true
   research_profile: "papers/obsidian/_indexes/research-profile.md"
   research_profile_example: "papers/obsidian/_indexes/research-profile.example.md"
@@ -48,6 +50,9 @@ policy:
   pending_notes_dir: "papers/obsidian/pending-notes"
   block_synthesis_review_when_required_pdfs_missing: true
   validate_paper_notes_before_synthesis: true
+  validate_extraction_depth: true
+  shallow_notes_fail_validation: true
+  metadata_level_notes_block_synthesis: true
   use_separate_summary_validation_agent: true
   block_synthesis_when_note_validation_unresolved: true
   restart_full_cycle_when_professor_review_says_insufficient: true

@@ -21,6 +21,7 @@ These local registry files should be ignored by Git because they can reveal acti
 - #paper/rejected
 - #paper/summarized
 - #paper/reviewed
+- #paper/needs-reanalysis
 
 ## Evidence Role
 

@@ -134,6 +134,8 @@ obsidian:
   note_body_language: "ko"
   preserve_original_titles_terms_tags: true
   preserve_technical_terms_and_concepts: true
+  paper_notes_are_deep_extraction_notes: true
+  metadata_level_notes_forbidden_under_notes: true
   keep_template_headings_language: "en"
   notes_dir: "papers/obsidian/notes"
   pending_notes_dir: "papers/obsidian/pending-notes"
@@ -160,6 +162,9 @@ note_validation:
   use_separate_agent: true
   report_filename: "note-validation.md"
   validate_new_or_materially_updated_notes: true
+  validate_extraction_depth: true
+  shallow_notes_fail_validation: true
+  metadata_level_notes_block_synthesis: true
   unresolved_failures_block_synthesis: true
 
 synthesis:

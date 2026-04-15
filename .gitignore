@@ -9,6 +9,11 @@
 !/AGENTS.md
 !/LICENSE
 
+# Public setup docs
+!docs/
+!docs/setup/
+!docs/setup/*.md
+
 # Project-local Codex skill
 !.agents/
 !.agents/skills/

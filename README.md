@@ -93,7 +93,8 @@ $paper-research-team으로 pending 논문 note 작성, note validation, synthesi
 - PDF가 아니라 confirmed full text로 논문을 분석한 경우에는 Zotero에 PDF attachment가 남지 않을 수 있습니다. 이때는 source URL이나 full-text 근거를 기록하고, PDF attachment 상태를 not applicable로 둡니다.
 - 이미 Zotero나 Obsidian note가 있는 핵심 논문은 중복 생성하지 않고 재사용합니다.
 - PDF, preprint, confirmed full text가 없는 논문은 `papers/obsidian/notes/`에 일반 note를 만들지 않습니다.
-- 개별 논문 note는 해당 논문 자체만 요약합니다. 현재 프로젝트에 대한 해석이나 종합은 synthesis에서 다룹니다.
+- 개별 논문 note는 짧은 abstract summary가 아니라 원문 기반 상세 추출 note로 작성합니다. 실험 디자인, 방법론, 측정 항목, 주요 결과가 부족하면 validation에서 repair 대상으로 봅니다.
+- 현재 프로젝트에 대한 해석이나 여러 논문 간 종합은 개별 note가 아니라 synthesis에서 다룹니다.
 - note 본문 설명은 한국어로 작성하고, title, authors, venue, DOI, tag, 기술 용어와 concept는 원문을 유지합니다.
 - `#domain/*`, `#method/*`, `#venue/*`, `#kw/*` tag는 `research-profile.md`와 local registry에서 관리하고, 이 파일들은 공개하지 않습니다.
 - `process-log.md`는 기본 산출물이 아닙니다. 실행 추적이나 진행 과정 기록을 명시적으로 요청한 경우에만 만듭니다.

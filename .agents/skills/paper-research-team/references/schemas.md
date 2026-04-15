@@ -29,6 +29,8 @@ Use `references/schemas/paper-note.md` when writing reusable notes under:
 
 `papers/obsidian/notes/`
 
+Apply `references/policies/paper-note-depth.md` before writing or validating reusable notes.
+
 ## Note Validation
 
 Use `references/schemas/note-validation.md` when checking generated or materially updated paper notes against source PDFs/full text before synthesis.

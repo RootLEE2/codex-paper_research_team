@@ -54,6 +54,8 @@ Store normal notes under:
 
 Before writing, apply `references/policies/pdf-gating.md`.
 
+For extraction depth, apply `references/policies/paper-note-depth.md`.
+
 For note language, apply `references/policies/note-language.md`.
 
 Individual paper notes summarize the paper itself. Do not include sections about the user's current project or research.
