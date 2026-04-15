@@ -21,12 +21,18 @@ Run:
 test -f AGENTS.md
 test -f README.md
 test -f SETUP.md
+test -f docs/setup/local-taxonomy.md
 test -f .agents/skills/paper-research-team/SKILL.md
 test -f .agents/skills/paper-research-team/config.yaml
 test -f .agents/skills/paper-research-team/agents/openai.yaml
 test -f papers/obsidian/_templates/paper-note-template.md
 test -f papers/obsidian/_indexes/tag-registry.md
 test -f papers/obsidian/_indexes/research-profile.example.md
+test -f papers/obsidian/_indexes/research-profile.md
+test -f papers/obsidian/_indexes/domain-registry.md
+test -f papers/obsidian/_indexes/method-registry.md
+test -f papers/obsidian/_indexes/venue-registry.md
+test -f papers/obsidian/_indexes/keyword-registry.md
 ```
 
 Validate YAML:
@@ -39,6 +45,12 @@ Check active policy text:
 
 ```bash
 rg -n "create_process_log_by_default: false|process_log_only_when_user_requests: true|pending-notes|Summary Validation Agent|restart_full_cycle_when_review_says_insufficient|research-profile.md|domain-registry.md|keyword-registry.md" .agents/skills/paper-research-team
+```
+
+Check local taxonomy setup:
+
+```bash
+rg -n "#domain/|#method/|#venue/|#kw/" papers/obsidian/_indexes/research-profile.md papers/obsidian/_indexes/domain-registry.md papers/obsidian/_indexes/method-registry.md papers/obsidian/_indexes/venue-registry.md papers/obsidian/_indexes/keyword-registry.md
 ```
 
 Run:

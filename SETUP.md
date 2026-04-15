@@ -31,11 +31,12 @@ Before running a real pipeline, ask the user to open Zotero Desktop and keep it 
 
 1. Review Codex permission settings: [docs/setup/codex-permissions.md](docs/setup/codex-permissions.md)
 2. Inspect/create runtime folders: [docs/setup/runtime-directories.md](docs/setup/runtime-directories.md)
-3. Restore the local paper-research skill: [docs/setup/paper-research-skill.md](docs/setup/paper-research-skill.md)
-4. Configure Obsidian and Zotero behavior: [docs/setup/obsidian-zotero.md](docs/setup/obsidian-zotero.md)
-5. Configure MCP servers: [docs/setup/mcp-servers.md](docs/setup/mcp-servers.md)
-6. Restart and verify installation: [docs/setup/verification.md](docs/setup/verification.md)
-7. Use troubleshooting notes only when blocked: [docs/setup/troubleshooting.md](docs/setup/troubleshooting.md)
+3. Create/fill `research-profile.md` and initialize local taxonomy registries: [docs/setup/local-taxonomy.md](docs/setup/local-taxonomy.md)
+4. Restore the local paper-research skill: [docs/setup/paper-research-skill.md](docs/setup/paper-research-skill.md)
+5. Configure Obsidian and Zotero behavior: [docs/setup/obsidian-zotero.md](docs/setup/obsidian-zotero.md)
+6. Configure MCP servers: [docs/setup/mcp-servers.md](docs/setup/mcp-servers.md)
+7. Restart and verify installation: [docs/setup/verification.md](docs/setup/verification.md)
+8. Use troubleshooting notes only when blocked: [docs/setup/troubleshooting.md](docs/setup/troubleshooting.md)
 
 ## Operating Rules
 
@@ -53,6 +54,8 @@ Before running a real pipeline, ask the user to open Zotero Desktop and keep it 
 - Root `AGENTS.md` routes paper research requests to `$paper-research-team`.
 - `.agents/skills/paper-research-team/SKILL.md` exists and points to `config.yaml` and `references/workflow.md`.
 - Runtime folders exist under `papers/`, `papers/obsidian/`, `papers/state/`, and `literature-reviews/`.
+- `research-profile.md` exists and has local domain, method, venue, and keyword seeds for taxonomy registry initialization.
+- Local taxonomy registries exist: `domain-registry.md`, `method-registry.md`, `venue-registry.md`, and `keyword-registry.md`.
 - Python fallback environment exists at `.agents/skills/paper-research-team/.venv`.
 - Expected MCP servers are registered: `openalex`, `paper-search`, `consensus`, and `zotero-full`.
 - Zotero Desktop is open before Zotero write/PDF attachment operations.

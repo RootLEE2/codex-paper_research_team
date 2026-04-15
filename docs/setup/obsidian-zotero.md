@@ -19,7 +19,9 @@ Required reusable note behavior:
 
 Ensure `papers/obsidian/_indexes/tag-registry.md` contains controlled public tags for workflow and evidence role only. Keep actual reusable `#domain/*`, `#method/*`, `#venue/*`, and `#kw/*` tags in local taxonomy registries.
 
-Ensure `papers/obsidian/_indexes/research-profile.example.md` exists. If `research-profile.md` is missing, tell the user to copy the example file to `research-profile.md` and fill in their local taxonomy before a real paper-research run.
+## Local Research Profile And Taxonomy Bootstrap
+
+Initialize `research-profile.md` and local taxonomy registries during setup, before a real paper-research run. Detailed instructions are in [local-taxonomy.md](local-taxonomy.md).
 
 ## Zotero Desktop Check
 

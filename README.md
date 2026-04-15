@@ -26,11 +26,12 @@ Codex local skill과 MCP 설정, 복구 절차는 [SETUP.md](SETUP.md)에 분리
 1. Zotero Desktop을 열어 둡니다.
 2. Codex를 이 workspace root에서 실행합니다.
 3. 처음 사용하는 workspace라면 `papers/obsidian/_indexes/research-profile.example.md`를 `research-profile.md`로 복사하고 기본 domain, method, 관심 venue, keyword seed를 적습니다.
-4. 논문 조사를 요청할 때는 `$paper-research-team`을 사용합니다.
-5. 자동화는 후보 논문을 넓게 찾은 뒤 screening을 거쳐 selected `core` 및 approved `supporting` 논문만 Zotero에 저장합니다.
-6. Selected paper에 PDF가 있으면 Zotero item에 PDF attachment까지 저장합니다.
-7. PDF 또는 full text가 없는 selected paper는 최종 synthesis/review 전에 멈추고 `papers/obsidian/pending-notes/`에 사용자 업로드 필요 목록만 남깁니다.
-8. PDF가 모두 준비되면 Zotero attachment 확인 후 pending 논문 note 작성, note validation, synthesis, professor review를 다시 진행합니다.
+4. Codex에게 setup을 요청해 `research-profile.md`를 바탕으로 local taxonomy registry를 초기화하고 MCP/local skill/runtime directory를 검증합니다.
+5. 논문 조사를 요청할 때는 `$paper-research-team`을 사용합니다.
+6. 자동화는 후보 논문을 넓게 찾은 뒤 screening을 거쳐 selected `core` 및 approved `supporting` 논문만 Zotero에 저장합니다.
+7. Selected paper에 PDF가 있으면 Zotero item에 PDF attachment까지 저장합니다.
+8. PDF 또는 full text가 없는 selected paper는 최종 synthesis/review 전에 멈추고 `papers/obsidian/pending-notes/`에 사용자 업로드 필요 목록만 남깁니다.
+9. PDF가 모두 준비되면 Zotero attachment 확인 후 pending 논문 note 작성, note validation, synthesis, professor review를 다시 진행합니다.
 
 ## 요청 예시
 
@@ -85,6 +86,21 @@ $paper-research-team으로 pending 논문 note 작성, note validation, synthesi
 - **Codex CLI**: local skill과 MCP 서버를 사용해 논문 조사 자동화를 실행합니다.
 - **브라우저 Zotero Connector**: 선택 사항이지만 논문 웹페이지에서 Zotero 저장을 보조할 수 있습니다.
 - **ZotMoov 또는 ZotFile 계열 PDF 관리 도구**: 선택 사항입니다. Zotero PDF를 `papers/zotero/`에 정리하려면 사용합니다.
+
+## 설치 및 초기 설정
+
+새 환경에서 사용할 때는 먼저 Zotero Desktop, Obsidian, Codex CLI를 설치하고 로그인합니다. 그 다음 이 repository를 clone한 workspace root에서 Codex를 실행합니다.
+
+Codex에게 setup을 요청하기 전에 `papers/obsidian/_indexes/research-profile.example.md`를 `research-profile.md`로 복사하고, 본인의 domain, method, 관심 venue, keyword seed를 채웁니다. `research-profile.md`는 local taxonomy registry인 `domain-registry.md`, `method-registry.md`, `venue-registry.md`, `keyword-registry.md`를 초기화하는 입력입니다. 자세한 절차는 [docs/setup/local-taxonomy.md](docs/setup/local-taxonomy.md)에 있습니다.
+
+그 다음 Codex에게 아래처럼 요청하면 [SETUP.md](SETUP.md)를 기준으로 local skill, MCP 서버, runtime directory, `research-profile.md` 기반 taxonomy registry, verification을 점검하게 할 수 있습니다.
+
+```text
+이 repository의 SETUP.md를 읽고 Codex local skill, MCP 설정, runtime directory, research-profile 기반 tag registry를 설치/검증해줘.
+Zotero Desktop은 열어둔 상태야.
+```
+
+`research-profile.md`와 local registry 파일들은 개인 연구 관심사를 담을 수 있으므로 Git에 올리지 않습니다.
 
 ## 논문 처리 원칙
 
