@@ -48,7 +48,7 @@ Assign each candidate one status:
 - `core`
 - `supporting`
 - `maybe`
-- `pending_pdf`
+- `pending_full_text`
 - `reject`
 
 Write `screening-results.md` and `selected-papers.md`.

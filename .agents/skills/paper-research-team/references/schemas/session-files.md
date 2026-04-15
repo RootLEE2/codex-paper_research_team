@@ -11,7 +11,7 @@ Always required files:
 - `evidence-map.md`
 - `screening-results.md`
 - `selected-papers.md`
-- `pending-pdfs.md`
+- `pending-papers.md`
 
 Conditionally required files:
 
@@ -26,7 +26,7 @@ Detailed schemas:
 - `references/schemas/evidence-map.md`
 - `references/schemas/screening-results.md`
 - `references/schemas/selected-papers.md`
-- `references/schemas/pending-pdfs.md`
+- `references/schemas/pending-papers.md`
 - `references/schemas/pending-record.md`
 - `references/schemas/note-validation.md`
 - `references/schemas/blocked-outputs.md`

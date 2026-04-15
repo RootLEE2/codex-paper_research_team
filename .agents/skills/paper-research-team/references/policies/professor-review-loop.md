@@ -16,16 +16,16 @@ The next cycle can be focused by the reviewer's critique, but it must still pass
 
 `search -> evidence map -> screening -> PDF/full-text gate -> notes -> note validation -> synthesis -> professor review`
 
-## If Review Is Blocked By PDFs
+## If Review Is Blocked By Missing Full Text
 
-Missing PDFs are not a review failure. They are a PDF gate.
+Missing full text is not a review failure. It is a full-text gate.
 
 When required selected papers lack PDF, preprint, or confirmed full text:
 
 - stop before final synthesis and professor review
 - record only user-upload-needed papers in `papers/obsidian/pending-notes/pending-papers.md`
 - keep broader candidate and triage details in the session folder, not in `pending-notes`
-- resume after the PDFs are available or after the user explicitly defers those papers
+- resume after the full text is available or after the user explicitly defers those papers
 
 ## Stop Condition
 

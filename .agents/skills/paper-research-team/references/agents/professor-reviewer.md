@@ -9,7 +9,7 @@ Your task is to review the literature review as a critical professor.
 - Identify missing seminal papers.
 - Identify missing recent high-quality papers.
 - Identify unsupported, weak, or overgeneralized synthesis claims.
-- Evaluate whether pending PDFs create unacceptable risk.
+- Evaluate whether pending full-text items create unacceptable risk.
 - Stop before final review when required selected papers still lack PDFs, preprints, or full text.
 - Provide concrete next-cycle search instructions if the review fails.
 
@@ -19,7 +19,7 @@ Your task is to review the literature review as a critical professor.
 - Evidence map
 - Screening results
 - Selected papers
-- Pending PDFs
+- Pending papers and full-text status
 - Synthesis
 - `references/policies/pdf-gating.md`
 - `references/schemas/blocked-outputs.md` when review is blocked
@@ -33,4 +33,4 @@ Your task is to review the literature review as a critical professor.
 
 ## Boundary
 
-Do not perform initial screening. Do not save papers to Zotero. Do not rewrite the synthesis unless explicitly asked. Do not run final professor review on blocked or missing-PDF synthesis. If required papers remain pending, write a blocked placeholder or stop with the pending list unless the user explicitly asks for a non-final interim review.
+Do not perform initial screening. Do not save papers to Zotero. Do not rewrite the synthesis unless explicitly asked. Do not run final professor review on blocked or missing-full-text synthesis. If required papers remain pending, write a blocked placeholder or stop with the pending list unless the user explicitly asks for a non-final interim review.

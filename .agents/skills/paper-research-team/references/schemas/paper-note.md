@@ -4,7 +4,7 @@ Use for reusable notes under `papers/obsidian/notes/`.
 
 The section headings remain template-controlled. With the current template, headings are English and body content is Korean.
 
-Use `papers/obsidian/_indexes/tag-registry.md` for non-keyword tags and `papers/obsidian/_indexes/keyword-registry.md` for `#kw/*` tags. Keep exact author keywords in `keywords:` when they are not promoted to reusable tags.
+Use `papers/obsidian/_indexes/tag-registry.md` for workflow and evidence tags. Read `papers/obsidian/_indexes/research-profile.md` when available, then use local taxonomy registries for `#domain/*`, `#method/*`, `#venue/*`, and `#kw/*` tags. Keep exact author keywords in `keywords:` when they are not promoted to reusable tags.
 
 ```markdown
 ---

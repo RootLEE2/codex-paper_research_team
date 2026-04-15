@@ -33,9 +33,9 @@ Examples:
 
 Use when the paper might be useful but evidence is insufficient. Do not save to Zotero unless later upgraded.
 
-### pending_pdf
+### pending_full_text
 
-Use when the paper is important enough to analyze but no PDF is available. It should also keep its conceptual status, such as core or supporting, in `selected-papers.md`, `pending-pdfs.md`, and any metadata-only record under `papers/obsidian/pending-notes/`.
+Use when the paper is important enough to analyze but no PDF is available. It should also keep its conceptual status, such as core or supporting, in `selected-papers.md`, `pending-papers.md`, and any unresolved record under `papers/obsidian/pending-notes/`.
 
 ### reject
 
@@ -55,24 +55,7 @@ Avoid a core set made only of recent keyword matches. Also avoid a core set made
 
 ## Venue Weight
 
-Give extra weight to strong venues in HCI, haptics, VR, robotics, and multimedia:
-
-- ACM CHI
-- ACM UIST
-- IEEE Transactions on Haptics
-- IEEE Haptics Symposium
-- IEEE World Haptics Conference
-- EuroHaptics
-- IEEE VR
-- IEEE ISMAR
-- ACM VRST
-- ACM DIS
-- ACM IMWUT
-- IEEE ICRA
-- IEEE IROS
-- ACM Multimedia
-- IEEE Transactions on Multimedia
-- ACM SIGGRAPH
+Give extra weight to strong venues for the user's field and topic. When a local venue registry exists, use it as the preferred venue vocabulary. Do not hard-code a field-specific venue list into public outputs.
 
 Venue quality is not enough by itself. A strong-venue paper still needs a clear role in the evidence map.
 
@@ -80,7 +63,7 @@ Venue quality is not enough by itself. A strong-venue paper still needs a clear 
 
 PDF availability should not determine intellectual relevance. However:
 
-- A high-value paper without a PDF should be marked `pending_pdf`.
+- A high-value paper without a PDF, preprint, or confirmed full text should be marked `pending_full_text`.
 - Do not write a detailed Obsidian paper note without a PDF, preprint, or confirmed full text.
 - Do not store PDF-missing papers under `papers/obsidian/notes/`.
 - Required selected papers without full text block final synthesis and professor review.

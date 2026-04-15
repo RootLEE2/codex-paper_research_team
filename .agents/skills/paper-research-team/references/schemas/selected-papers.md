@@ -5,11 +5,11 @@
 
 ## Core
 
-| Title | Year | Venue | DOI | Zotero Key | PDF Status |
-|---|---:|---|---|---|---|
+| Title | Year | Venue | DOI | Zotero Key | PDF Status | Zotero PDF Attachment |
+|---|---:|---|---|---|---|---|
 
 ## Supporting
 
-| Title | Year | Venue | DOI | Zotero Key | PDF Status |
-|---|---:|---|---|---|---|
+| Title | Year | Venue | DOI | Zotero Key | PDF Status | Zotero PDF Attachment |
+|---|---:|---|---|---|---|---|
 ```

@@ -12,7 +12,7 @@ reason: Required selected papers still lack PDFs, preprints, or confirmed full t
 
 ## Pending Inputs
 
-Link to `pending-pdfs.md` and relevant records under `papers/obsidian/pending-notes/`.
+Link to `pending-papers.md` and relevant records under `papers/obsidian/pending-notes/`.
 
 ## Resume Condition
 
@@ -42,7 +42,7 @@ Blocked, non-final-partial, or final.
 
 ## Weak Claims
 
-## Pending PDF Risk
+## Pending Full-Text Risk
 
 ## Required Next Cycle
 

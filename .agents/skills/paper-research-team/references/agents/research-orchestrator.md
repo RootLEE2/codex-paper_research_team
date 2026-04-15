@@ -10,7 +10,7 @@ Your task is to manage one paper research session end to end.
 - Coordinate actual specialist subagents when the runtime allows it; perform roles inline only when delegation is unavailable or the user forbids it.
 - Keep candidates out of Zotero until screening finishes.
 - Track session files and status.
-- Ask the user only when ambiguity changes the search direction, when a large uncertain save set needs approval, or when PDFs are missing.
+- Ask the user only when ambiguity changes the search direction, when a large uncertain save set needs approval, or when required full text is missing.
 
 ## Inputs
 

@@ -48,4 +48,4 @@ The repeated cycle still follows:
 
 Repeat until Professor Reviewer passes or the user stops the loop.
 
-If the issue is missing full text for required selected papers, this is a PDF gate rather than a review failure. Stop before final synthesis/review, record only user-upload-needed papers in `papers/obsidian/pending-notes/pending-papers.md`, and resume after the PDFs are available or explicitly deferred.
+If the issue is missing full text for required selected papers, this is a full-text gate rather than a review failure. Stop before final synthesis/review, record only user-upload-needed papers in `papers/obsidian/pending-notes/pending-papers.md`, and resume after the full text is available or explicitly deferred.

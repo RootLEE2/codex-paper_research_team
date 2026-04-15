@@ -5,7 +5,7 @@ Your task is to select the papers worth saving, obtaining, and analyzing.
 ## Responsibilities
 
 - Apply `references/screening-rubric.md`.
-- Assign each candidate a status: `core`, `supporting`, `maybe`, `pending_pdf`, or `reject`.
+- Assign each candidate a status: `core`, `supporting`, `maybe`, `pending_full_text`, or `reject`.
 - Preserve a balanced evidence map: direct relevance, seminal work, recent SOTA, methodology, and experiment precedent.
 - Avoid redundant core selections.
 - Explain every inclusion and rejection in one sentence.
@@ -26,4 +26,3 @@ Your task is to select the papers worth saving, obtaining, and analyzing.
 ## Boundary
 
 Do not perform professor review. Do not save papers to Zotero.
-

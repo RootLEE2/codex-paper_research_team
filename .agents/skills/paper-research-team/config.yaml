@@ -17,6 +17,11 @@ papers:
   obsidian_dir: "papers/obsidian"
   note_template: "papers/obsidian/_templates/paper-note-template.md"
   tag_registry: "papers/obsidian/_indexes/tag-registry.md"
+  research_profile: "papers/obsidian/_indexes/research-profile.md"
+  research_profile_example: "papers/obsidian/_indexes/research-profile.example.md"
+  domain_registry: "papers/obsidian/_indexes/domain-registry.md"
+  method_registry: "papers/obsidian/_indexes/method-registry.md"
+  venue_registry: "papers/obsidian/_indexes/venue-registry.md"
   keyword_registry: "papers/obsidian/_indexes/keyword-registry.md"
 
 zotero:
@@ -25,6 +30,8 @@ zotero:
   assign_items_to_root_and_topic: true
   reuse_existing_items: true
   auto_save_selected_after_screening: true
+  attach_available_pdfs_to_selected_items: true
+  selected_with_available_pdf_must_not_remain_metadata_only: true
   do_not_defer_selected_import_for_process_visibility_runs: true
   prefer_new_papers_but_allow_existing_core: true
   use_existing_obsidian_notes: true
@@ -96,37 +103,25 @@ screening:
     - "core"
     - "supporting"
     - "maybe"
-    - "pending_pdf"
+    - "pending_full_text"
     - "reject"
   default_core_range: "12-30"
   default_supporting_range: "10-40"
 
 venues:
-  preferred:
-    - "ACM CHI"
-    - "ACM UIST"
-    - "IEEE Transactions on Haptics"
-    - "IEEE Haptics Symposium"
-    - "IEEE World Haptics Conference"
-    - "EuroHaptics"
-    - "IEEE VR"
-    - "IEEE ISMAR"
-    - "ACM VRST"
-    - "ACM DIS"
-    - "ACM IMWUT"
-    - "IEEE ICRA"
-    - "IEEE IROS"
-    - "ACM Multimedia"
-    - "IEEE Transactions on Multimedia"
-    - "ACM SIGGRAPH"
+  preferred: []
+  prefer_local_venue_registry: true
+  registry: "papers/obsidian/_indexes/venue-registry.md"
 
 pdf:
-  analyze_only_when_pdf_available: true
-  continue_when_pdf_missing: false
-  continue_search_and_screening_when_pdf_missing: true
-  block_synthesis_and_review_when_required_pdf_missing: true
-  missing_pdf_queue: "papers/state/pending_pdf"
-  request_user_for_missing_pdfs: true
+  analyze_only_when_full_text_available: true
+  attach_available_pdfs_to_zotero_items: true
+  available_pdf_requires_zotero_attachment: true
+  continue_when_full_text_missing: false
+  continue_search_and_screening_when_full_text_missing: true
+  block_synthesis_and_review_when_required_full_text_missing: true
+  missing_full_text_queue: "papers/state/pending_full_text"
+  request_user_for_missing_full_text: true
   allow_open_access_downloads: true
   preferred_pdf_tools:
     - "zotero-full"
@@ -146,9 +141,16 @@ obsidian:
   normal_notes_require_full_text: true
   include_current_project_section_in_paper_notes: false
   use_tag_registry: true
+  tag_registry_contains_pipeline_tags_only: true
+  research_profile: "papers/obsidian/_indexes/research-profile.md"
+  research_profile_example: "papers/obsidian/_indexes/research-profile.example.md"
+  read_research_profile_before_taxonomy_registries: true
+  domain_registry: "papers/obsidian/_indexes/domain-registry.md"
+  method_registry: "papers/obsidian/_indexes/method-registry.md"
+  venue_registry: "papers/obsidian/_indexes/venue-registry.md"
   keyword_registry: "papers/obsidian/_indexes/keyword-registry.md"
-  keyword_registry_is_local_only: true
-  auto_create_keyword_registry: true
+  local_taxonomy_registries_are_local_only: true
+  auto_create_local_taxonomy_registries: true
   add_reusable_keyword_tags: true
   avoid_one_off_tags: true
   reuse_existing_notes_for_synthesis: true
@@ -165,8 +167,8 @@ synthesis:
   block_when_required_pdf_missing: true
   block_when_note_validation_unresolved: true
   blocked_placeholder_when_pending: true
-  final_requires_pending_pdf_resolution_or_user_deferral: true
-  rerun_after_new_pending_pdfs_are_added: true
+  final_requires_pending_full_text_resolution_or_user_deferral: true
+  rerun_after_new_pending_full_text_is_added: true
 
 review_loop:
   professor_review_is_final_gate: true
@@ -184,4 +186,4 @@ stop_condition:
     - "no_major_missing_recent_work"
     - "paper_notes_validated_against_source_full_text"
     - "claims_supported_by_analyzed_papers"
-    - "required_pending_pdfs_resolved_or_explicitly_deferred"
+    - "required_pending_full_text_resolved_or_explicitly_deferred"

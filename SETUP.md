@@ -10,8 +10,8 @@ Set up a project-local paper research system that can:
 - Screen candidates before Zotero storage.
 - Save only selected `core` and approved `supporting` papers to Zotero.
 - Reuse existing Zotero items, PDFs, and Obsidian notes when appropriate.
-- Acquire PDFs when available.
-- Ask the user for missing PDFs.
+- Acquire PDFs when available and attach available PDF files to the selected Zotero items.
+- Ask the user for missing full text.
 - Write reusable Obsidian paper notes only from confirmed full text.
 - Validate notes with a separate Summary Validation Agent before synthesis.
 - Synthesize the literature review.
@@ -21,7 +21,7 @@ Set up a project-local paper research system that can:
 
 - Do not save every search candidate to Zotero.
 - Do not create normal Obsidian notes for papers without PDFs, preprints, or confirmed full text.
-- Do not run final synthesis or final professor review while required selected PDFs are missing.
+- Do not run final synthesis or final professor review while required selected full text is missing.
 - Do not create `process-log.md` by default. Create it only when the user explicitly asks for a process log, first-run trace, or process-visibility artifact.
 
 ## Manual Prerequisites
@@ -69,6 +69,11 @@ papers/obsidian/notes/
 papers/obsidian/pending-notes/
 papers/obsidian/_templates/paper-note-template.md
 papers/obsidian/_indexes/tag-registry.md
+papers/obsidian/_indexes/research-profile.example.md
+papers/obsidian/_indexes/research-profile.md
+papers/obsidian/_indexes/domain-registry.md
+papers/obsidian/_indexes/method-registry.md
+papers/obsidian/_indexes/venue-registry.md
 papers/obsidian/_indexes/keyword-registry.md
 literature-reviews/
 ```
@@ -106,7 +111,7 @@ mkdir -p papers/obsidian/reviews
 mkdir -p papers/state/sessions
 mkdir -p papers/state/candidates
 mkdir -p papers/state/screened
-mkdir -p papers/state/pending_pdf
+mkdir -p papers/state/pending_full_text
 mkdir -p literature-reviews
 mkdir -p .agents/skills/paper-research-team/agents
 mkdir -p .agents/skills/paper-research-team/references/agents
@@ -142,7 +147,7 @@ Ensure `.agents/skills/paper-research-team/SKILL.md` exists with frontmatter sim
 ```yaml
 ---
 name: paper-research-team
-description: Use when the user asks to search academic papers, conduct a literature review, find related work, expand references or citations, use OpenAlex, Semantic Scholar, or Consensus, save papers to Zotero, download PDFs, summarize PDFs into Obsidian, manage paper tags, synthesize literature, request missing PDFs, or run an iterative professor-reviewed paper research pipeline.
+description: Use when the user asks to search academic papers, conduct a literature review, find related work, expand references or citations, use OpenAlex, Semantic Scholar, or Consensus, save papers to Zotero, download PDFs, summarize PDFs into Obsidian, manage paper tags, synthesize literature, request missing full text, or run an iterative professor-reviewed paper research pipeline.
 metadata:
   short-description: Search, screen, save, analyze, and synthesize papers.
 ---
@@ -157,7 +162,8 @@ The body must instruct Codex to:
 - Save only screened `core` and approved `supporting` papers.
 - Use actual subagents for separable phases when feasible.
 - Keep Paper Analyst, Summary Validation Agent, Synthesis Agent, and Professor Reviewer separate.
-- Reuse existing Zotero items and Obsidian notes for selected core/supporting papers when appropriate.
+- Reuse existing Zotero items, PDF attachments, and Obsidian notes for selected core/supporting papers when appropriate.
+- Treat a selected paper with an available PDF as incomplete until the PDF attachment is attached to or clearly linked from its Zotero item.
 - Stop before final synthesis/review if required selected full text is missing.
 - Resume pending papers after the user reports PDFs were added.
 - Avoid default `process-log.md` creation.
@@ -176,16 +182,20 @@ agents:
 
 zotero:
   auto_save_selected_after_screening: true
+  attach_available_pdfs_to_selected_items: true
+  selected_with_available_pdf_must_not_remain_metadata_only: true
   do_not_defer_selected_import_for_process_visibility_runs: true
   save_statuses:
     - "core"
     - "supporting"
 
 pdf:
-  analyze_only_when_pdf_available: true
-  continue_when_pdf_missing: false
-  continue_search_and_screening_when_pdf_missing: true
-  block_synthesis_and_review_when_required_pdf_missing: true
+  analyze_only_when_full_text_available: true
+  attach_available_pdfs_to_zotero_items: true
+  available_pdf_requires_zotero_attachment: true
+  continue_when_full_text_missing: false
+  continue_search_and_screening_when_full_text_missing: true
+  block_synthesis_and_review_when_required_full_text_missing: true
 
 obsidian:
   language: "ko"
@@ -193,9 +203,15 @@ obsidian:
   preserve_original_titles_terms_tags: true
   preserve_technical_terms_and_concepts: true
   pending_notes_dir: "papers/obsidian/pending-notes"
+  research_profile: "papers/obsidian/_indexes/research-profile.md"
+  research_profile_example: "papers/obsidian/_indexes/research-profile.example.md"
+  read_research_profile_before_taxonomy_registries: true
+  domain_registry: "papers/obsidian/_indexes/domain-registry.md"
+  method_registry: "papers/obsidian/_indexes/method-registry.md"
+  venue_registry: "papers/obsidian/_indexes/venue-registry.md"
   keyword_registry: "papers/obsidian/_indexes/keyword-registry.md"
-  keyword_registry_is_local_only: true
-  auto_create_keyword_registry: true
+  local_taxonomy_registries_are_local_only: true
+  auto_create_local_taxonomy_registries: true
   normal_notes_require_full_text: true
 
 note_validation:
@@ -218,12 +234,15 @@ Required reusable note behavior:
 - Explanatory body content in Korean.
 - Original titles, authors, venues, DOI/URL, tags, technical terms, and concepts preserved.
 - Normal notes only under `papers/obsidian/notes/`.
-- Missing-PDF metadata or upload-needed records only under `papers/obsidian/pending-notes/`.
-- Non-keyword tags come from `papers/obsidian/_indexes/tag-registry.md`.
-- Keyword tags come from `papers/obsidian/_indexes/keyword-registry.md`.
-- `keyword-registry.md` is local-only and should be ignored by Git.
+- Missing-full-text metadata or upload-needed records only under `papers/obsidian/pending-notes/`.
+- Available PDF files must be attached to the corresponding selected Zotero item. A non-pending selected paper with PDF availability should not remain metadata-only in Zotero.
+- Workflow and evidence tags come from `papers/obsidian/_indexes/tag-registry.md`.
+- Domain, method, venue, and keyword tags come from `research-profile.md` and local taxonomy registries.
+- `research-profile.md`, `domain-registry.md`, `method-registry.md`, `venue-registry.md`, and `keyword-registry.md` are local-only and should be ignored by Git.
 
-Ensure `papers/obsidian/_indexes/tag-registry.md` contains controlled public tags for workflow, evidence role, domain, method, and venue. Keep actual reusable `#kw/*` tags in `keyword-registry.md`.
+Ensure `papers/obsidian/_indexes/tag-registry.md` contains controlled public tags for workflow and evidence role only. Keep actual reusable `#domain/*`, `#method/*`, `#venue/*`, and `#kw/*` tags in local taxonomy registries.
+
+Ensure `papers/obsidian/_indexes/research-profile.example.md` exists. If `research-profile.md` is missing, tell the user to copy the example file to `research-profile.md` and fill in their local taxonomy before a real paper-research run.
 
 ## Step 7: Install Python Fallback Environment
 
@@ -352,6 +371,7 @@ test -f .agents/skills/paper-research-team/config.yaml
 test -f .agents/skills/paper-research-team/agents/openai.yaml
 test -f papers/obsidian/_templates/paper-note-template.md
 test -f papers/obsidian/_indexes/tag-registry.md
+test -f papers/obsidian/_indexes/research-profile.example.md
 ```
 
 Validate YAML:
@@ -363,7 +383,7 @@ Validate YAML:
 Check active policy text:
 
 ```bash
-rg -n "create_process_log_by_default: false|process_log_only_when_user_requests: true|pending-notes|Summary Validation Agent|restart_full_cycle_when_review_says_insufficient|keyword-registry.md" .agents/skills/paper-research-team
+rg -n "create_process_log_by_default: false|process_log_only_when_user_requests: true|pending-notes|Summary Validation Agent|restart_full_cycle_when_review_says_insufficient|research-profile.md|domain-registry.md|keyword-registry.md" .agents/skills/paper-research-team
 ```
 
 Run:
@@ -403,7 +423,8 @@ Expected behavior:
 - Consensus may be used for structured validation.
 - Unscreened candidates are not saved to Zotero.
 - Selected `core` and approved `supporting` papers are saved to Zotero unless the user explicitly skips Zotero writes.
-- Missing PDFs are listed under pending handling and block final synthesis/review.
+- Selected papers with available PDFs have those PDFs attached to Zotero items; otherwise they remain pending or explicitly use a non-PDF confirmed full-text source.
+- Missing full text is listed under pending handling and blocks final synthesis/review.
 - `process-log.md` is not created unless the user explicitly requested process visibility.
 
 ## Troubleshooting

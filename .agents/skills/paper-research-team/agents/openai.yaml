@@ -27,14 +27,23 @@ policy:
   create_process_log_by_default: false
   process_log_only_when_user_requests: true
   auto_save_selected_to_zotero: true
+  attach_available_pdfs_to_selected_zotero_items: true
+  selected_with_available_pdf_must_not_remain_metadata_only: true
   do_not_defer_selected_zotero_import_for_process_visibility_runs: true
   normal_notes_require_full_text: true
   note_body_language: "ko"
   preserve_original_titles_terms_tags: true
   preserve_technical_terms_and_concepts: true
+  tag_registry_contains_pipeline_tags_only: true
+  research_profile: "papers/obsidian/_indexes/research-profile.md"
+  research_profile_example: "papers/obsidian/_indexes/research-profile.example.md"
+  read_research_profile_before_taxonomy_registries: true
+  domain_registry: "papers/obsidian/_indexes/domain-registry.md"
+  method_registry: "papers/obsidian/_indexes/method-registry.md"
+  venue_registry: "papers/obsidian/_indexes/venue-registry.md"
   keyword_registry: "papers/obsidian/_indexes/keyword-registry.md"
-  keyword_registry_is_local_only: true
-  auto_create_keyword_registry: true
+  local_taxonomy_registries_are_local_only: true
+  auto_create_local_taxonomy_registries: true
   promote_keyword_tags_only_when_reusable: true
   pending_notes_dir: "papers/obsidian/pending-notes"
   block_synthesis_review_when_required_pdfs_missing: true

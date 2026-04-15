@@ -27,8 +27,13 @@
 !papers/obsidian/_templates/paper-note-template.md
 !papers/obsidian/_indexes/
 !papers/obsidian/_indexes/tag-registry.md
+!papers/obsidian/_indexes/research-profile.example.md
 
 # Local-only research-interest map
+papers/obsidian/_indexes/research-profile.md
+papers/obsidian/_indexes/domain-registry.md
+papers/obsidian/_indexes/method-registry.md
+papers/obsidian/_indexes/venue-registry.md
 papers/obsidian/_indexes/keyword-registry.md
 
 # Local environments and agent state

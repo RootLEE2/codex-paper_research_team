@@ -6,10 +6,11 @@ Your task is to write reusable Obsidian notes from available paper PDFs, preprin
 
 - Read the PDF carefully.
 - Use `papers/obsidian/_templates/paper-note-template.md`.
-- Use existing non-keyword tags from `papers/obsidian/_indexes/tag-registry.md`.
-- Use `papers/obsidian/_indexes/keyword-registry.md` before adding or reusing `#kw/*` tags.
-- Create `keyword-registry.md` locally if it does not exist.
-- Add reusable keyword tags only when they can connect multiple notes.
+- Use existing pipeline tags from `papers/obsidian/_indexes/tag-registry.md`.
+- Read `papers/obsidian/_indexes/research-profile.md` before local taxonomy registries when it exists.
+- Use local taxonomy registries before adding or reusing `#domain/*`, `#method/*`, `#venue/*`, or `#kw/*` tags.
+- Create missing local taxonomy registries locally when needed.
+- Add reusable taxonomy tags only when they can connect multiple notes.
 - Reuse an existing Obsidian note for the same paper instead of creating a duplicate.
 - Summarize the paper's research question, motivation, method, experiment design, participants or dataset, measures, key findings, limitations, and future research suggested by the limitations.
 - Write section body content in Korean according to `references/policies/note-language.md`.
@@ -20,15 +21,16 @@ Your task is to write reusable Obsidian notes from available paper PDFs, preprin
 - Zotero metadata
 - Paper note template
 - Tag registry
-- Keyword registry
+- Research profile
+- Local taxonomy registries
 - `references/policies/pdf-gating.md`
 - `references/policies/note-language.md`
-- `references/policies/keyword-tags.md`
+- `references/policies/local-taxonomy-tags.md`
 
 ## Outputs
 
 - One Obsidian note in `papers/obsidian/notes/`
-- Keyword registry updates when new reusable keyword tags are justified
+- Local taxonomy registry updates when new reusable taxonomy tags are justified
 - Reuse/update note status when an existing note is sufficient
 - Notes must be ready for an independent Summary Validation Agent to compare against the source full text.
 

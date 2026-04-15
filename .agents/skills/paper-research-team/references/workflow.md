@@ -41,7 +41,7 @@ If any required selected paper still lacks a PDF, preprint, or confirmed full te
 - do not run final professor review
 - use blocked placeholders only when useful for the session output
 
-If Professor Reviewer says the investigation is insufficient for reasons other than missing PDFs:
+If Professor Reviewer says the investigation is insufficient for reasons other than missing full text:
 
 - restart from broad search and evidence mapping using the review critique as the next-cycle brief
 - rerun screening, PDF acquisition, notes, note validation, synthesis, and review

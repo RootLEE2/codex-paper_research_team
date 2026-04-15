@@ -1,6 +1,6 @@
 ---
 name: paper-research-team
-description: Use when the user asks to search academic papers, conduct a literature review, find related work, expand references or citations, use OpenAlex, Semantic Scholar, or Consensus, save papers to Zotero, download PDFs, summarize PDFs into Obsidian, manage paper tags, synthesize literature, request missing PDFs, or run an iterative professor-reviewed paper research pipeline.
+description: Use when the user asks to search academic papers, conduct a literature review, find related work, expand references or citations, use OpenAlex, Semantic Scholar, or Consensus, save papers to Zotero, download PDFs, summarize PDFs into Obsidian, manage paper tags, synthesize literature, request missing full text, or run an iterative professor-reviewed paper research pipeline.
 metadata:
   short-description: Search, screen, save, analyze, and synthesize papers.
 ---
@@ -27,11 +27,11 @@ On activation:
 1. Create a research brief from the user's request.
 2. Search broadly using available academic tools.
 3. Build an evidence map from candidate papers.
-4. Screen candidates into `core`, `supporting`, `maybe`, `pending_pdf`, and `reject`.
+4. Screen candidates into `core`, `supporting`, `maybe`, `pending_full_text`, and `reject`.
 5. Save selected `core` and approved `supporting` papers to the `papers` Zotero collection and the topic subcollection unless the user explicitly asks to skip Zotero writes.
 6. Ask before saving only when the set contains non-selected candidates, `maybe` papers, or papers outside the screened scope.
-7. Acquire PDFs when possible.
-8. Put unavailable PDFs into a pending list and ask the user for them.
+7. Acquire PDFs when possible and attach every available PDF file to the corresponding selected Zotero item.
+8. Put unavailable full text into a pending list and ask the user for it.
 9. Write Obsidian notes only for papers with confirmed PDFs, preprints, or full text.
 10. Reuse existing Zotero items and existing Obsidian notes for important core papers when available.
 11. Expand through references, citations, and related works.
@@ -73,16 +73,17 @@ Codex does not require these files to be registered as `/agent` entries. They ar
 - Prefer high-quality coverage over raw paper count.
 - Keep candidate discovery broad but Zotero storage selective.
 - Prefer newly discovered papers, but reuse papers already in Zotero when they are genuinely core, seminal, or necessary for coverage.
+- Do not treat a selected paper with an available PDF as complete in Zotero until the PDF is attached to or clearly linked from the Zotero item.
 - Do not defer Zotero writes for a process-visibility run. Process visibility may be documented in requested session files while selected Zotero import still runs.
 - Do not create `process-log.md` by default. Create it only when the user explicitly asks for a process log, first-run trace, or separate process-visibility artifact.
 - Keep Professor Reviewer separate from Screening Agent.
-- Use the tag registry before inventing non-keyword Obsidian tags, and use the local keyword registry before adding or reusing `#kw/*` tags.
+- Use the public tag registry for pipeline tags. Read the local research profile before using local taxonomy registries for `#domain/*`, `#method/*`, `#venue/*`, or `#kw/*` tags.
 - Individual paper notes must summarize the paper itself and must not include a section about the user's current research.
 - Apply `references/policies/note-language.md` when writing or updating paper notes.
-- Apply `references/policies/keyword-tags.md` before writing or updating keyword tags in paper notes.
+- Apply `references/policies/local-taxonomy-tags.md` before writing or updating domain, method, venue, or keyword tags in paper notes.
 - Apply `references/policies/pdf-gating.md` before writing notes, synthesis, or professor review.
 - Apply `references/policies/summary-validation.md` before synthesis whenever notes were newly written or materially updated.
 - Apply `references/policies/pending-papers.md` when selected papers lack full text.
 - Apply `references/policies/professor-review-loop.md` when Professor Reviewer asks for more work or says coverage is insufficient.
 - Apply `references/policies/subagent-delegation.md` when splitting work across agents.
-- Codex does not run a periodic background watcher by default. When the user later provides missing PDFs, resume the session, process the new PDFs, convert pending records into full paper notes, update synthesis, and rerun professor review.
+- Codex does not run a periodic background watcher by default. When the user later provides missing full text, resume the session, process any new PDFs, convert pending records into full paper notes, update synthesis, and rerun professor review.

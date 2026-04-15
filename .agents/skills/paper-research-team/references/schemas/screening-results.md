@@ -5,5 +5,5 @@
 
 | Status | Evidence Role | Year | Venue | Title | DOI | Reason |
 |---|---|---:|---|---|---|---|
-| core | directly_relevant | 2025 | CHI | ... | ... | ... |
+| core | directly_relevant | 2025 | <venue> | ... | ... | ... |
 ```
