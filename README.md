@@ -35,7 +35,7 @@ Codex 자동화 설정과 복구 절차는 [SETUP.md](SETUP.md)에 분리되어 
 처음 실행할 때는 주제, 목적, 원하는 결과 위치를 같이 적는 것이 좋습니다.
 
 ```text
-$paper-research-team으로 haptic feedback for collision avoidance in VR 관련 논문 조사를 진행해줘.
+$paper-research-team으로 <조사할 주제> 관련 논문 조사를 진행해줘.
 목표는 내 연구의 related work 정리야.
 결과는 literature-reviews/YYYY-MM-DD-topic-slug/에 저장해줘.
 Zotero에는 selected core/supporting paper만 저장하고, PDF가 없으면 pending 목록만 남겨줘.

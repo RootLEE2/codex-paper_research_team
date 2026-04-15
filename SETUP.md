@@ -392,7 +392,7 @@ zotero
 After restarting Codex from the workspace root, test with:
 
 ```text
-$paper-research-team으로 논문 조사 시작해줘. 주제는 haptic feedback for collision avoidance in virtual reality야. Zotero 저장 전 screening 결과부터 보여줘.
+$paper-research-team으로 논문 조사 시작해줘. 주제는 <조사할 주제>야. Zotero 저장 전 screening 결과부터 보여줘.
 ```
 
 Expected behavior:
